@@ -68,3 +68,14 @@ A tabela `ParticipacaoPartida` é responsável por armazenar os dados de desempe
 1. Clone o repositório
 
 2. Crie e ative o ambiente virtual:
+python -m venv venv
+venv\Scripts\activate
+
+3. Instale as dependências:
+pip install -r requirements.txt
+
+4. Execute o projeto:
+python app.py
+
+5. Acesse no navegador:
+http://127.0.0.1:5000/
