@@ -1,0 +1,11 @@
+Etapa 5.1 — Criar a base visual do projeto
+
+Até aqui, sua tela funciona. Agora vamos fazer o projeto começar a ter cara de aplicação real.
+
+Nesta etapa vamos criar:
+
+um layout base
+uma página inicial
+navegação entre páginas
+
+Isso evita repetição e deixa o projeto mais profissional.

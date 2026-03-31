@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Nova Partida{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <div>
+            <h2>Nova partida</h2>
+            <p>Cadastre uma nova partida e selecione os jogadores participantes.</p>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <form method="POST" action="/partidas/cadastrar">
+            <div class="form-grid">
+                <div>
+                    <label for="data">Data e hora da partida</label>
+                    <input type="datetime-local" name="data" id="data" required>
+                </div>
+            </div>
+
+            <h3>Jogadores participantes</h3>
+
+            {% if jogadores %}
+                <div class="checkbox-group">
+                    {% for jogador in jogadores %}
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="jogadores" value="{{ jogador.id }}">
+                            <span>
+                                <strong>{{ jogador.nome }}</strong>
+                                {% if jogador.apelido %}
+                                    - {{ jogador.apelido }}
+                                {% endif %}
+                                {% if jogador.posicao %}
+                                    ({{ jogador.posicao }})
+                                {% endif %}
+                            </span>
+                        </label>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="empty-state">
+                    <p>Nenhum jogador cadastrado.</p>
+                </div>
+            {% endif %}
+
+            <div class="form-actions">
+                <button type="submit">Salvar partida</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

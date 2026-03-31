@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalhes da Partida{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <div>
+            <h2>Detalhes da partida</h2>
+            <p>Registre o desempenho dos jogadores e acompanhe a composição dos times.</p>
+        </div>
+    </div>
+
+    <div class="match-summary">
+        <p><strong>Partida:</strong> #{{ partida.id }}</p>
+        <p><strong>Data:</strong> {{ partida.data.strftime('%d/%m/%Y %H:%M') }}</p>
+        <p><strong>Total de participações:</strong> {{ partida.participacoes|length }}</p>
+    </div>
+
+    <form method="POST" action="/partidas/{{ partida.id }}/atualizar">
+        <div class="teams-grid">
+            <div class="time-box">
+                <h3>Time A</h3>
+
+                {% if time_a %}
+                    {% for participacao in time_a %}
+                        <div class="player-stats-card">
+                            <div class="player-stats-header">
+                                <h4>{{ participacao.jogador.nome }}</h4>
+                                <p>
+                                    {{ participacao.jogador.apelido or "Sem apelido" }}
+                                    {% if participacao.jogador.posicao %}
+                                        - {{ participacao.jogador.posicao }}
+                                    {% endif %}
+                                </p>
+                            </div>
+
+                            <input type="hidden" name="participacao_id" value="{{ participacao.id }}">
+
+                            <div class="stats-grid">
+                                <div>
+                                    <label>Gols</label>
+                                    <input type="number" name="gols_{{ participacao.id }}" value="{{ participacao.gols or 0 }}">
+                                </div>
+
+                                <div>
+                                    <label>Assistências</label>
+                                    <input type="number" name="assistencias_{{ participacao.id }}" value="{{ participacao.assistencias or 0 }}">
+                                </div>
+
+                                <div>
+                                    <label>Nota</label>
+                                    <input type="number" step="0.1" name="nota_{{ participacao.id }}" value="{{ participacao.nota or 0 }}">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <p>Nenhum jogador no Time A.</p>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="time-box">
+                <h3>Time B</h3>
+
+                {% if time_b %}
+                    {% for participacao in time_b %}
+                        <div class="player-stats-card">
+                            <div class="player-stats-header">
+                                <h4>{{ participacao.jogador.nome }}</h4>
+                                <p>
+                                    {{ participacao.jogador.apelido or "Sem apelido" }}
+                                    {% if participacao.jogador.posicao %}
+                                        - {{ participacao.jogador.posicao }}
+                                    {% endif %}
+                                </p>
+                            </div>
+
+                            <input type="hidden" name="participacao_id" value="{{ participacao.id }}">
+
+                            <div class="stats-grid">
+                                <div>
+                                    <label>Gols</label>
+                                    <input type="number" name="gols_{{ participacao.id }}" value="{{ participacao.gols or 0 }}">
+                                </div>
+
+                                <div>
+                                    <label>Assistências</label>
+                                    <input type="number" name="assistencias_{{ participacao.id }}" value="{{ participacao.assistencias or 0 }}">
+                                </div>
+
+                                <div>
+                                    <label>Nota</label>
+                                    <input type="number" step="0.1" name="nota_{{ participacao.id }}" value="{{ participacao.nota or 0 }}">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <p>Nenhum jogador no Time B.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="submit-area">
+            <button type="submit">Salvar estatísticas</button>
+        </div>
+    </form>
+{% endblock %}

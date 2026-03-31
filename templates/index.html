@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <div>
+            <h2>Visão geral do sistema</h2>
+            <p>Aplicação web para cadastro de jogadores, criação de partidas e análise de desempenho.</p>
+        </div>
+    </div>
+
+    <div class="ranking-summary">
+        <div class="summary-card">
+            <h3>Módulo 1</h3>
+            <p>Jogadores</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Módulo 2</h3>
+            <p>Partidas</p>
+        </div>
+
+        <div class="summary-card">
+            <h3>Módulo 3</h3>
+            <p>Ranking</p>
+        </div>
+    </div>
+
+    <hr class="page-divider">
+
+    <p>
+        O sistema foi desenvolvido para registrar participações em partidas amadoras
+        e consolidar dados de desempenho com métricas como gols, assistências e nota por jogador.
+    </p>
+
+    <p class="muted-text">
+        Esse projeto pode ser apresentado como aplicação web com modelagem relacional,
+        armazenamento estruturado de eventos e geração de indicadores analíticos.
+    </p>
+{% endblock %}

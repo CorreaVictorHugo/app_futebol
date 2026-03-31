@@ -1,0 +1,13 @@
+Etapa 6 — Estruturar a funcionalidade de partidas
+
+Agora vamos começar a segunda entidade principal do sistema: Partida.
+
+Nesta etapa, ainda não vamos registrar gols, assistências e notas.
+Primeiro vamos fazer a base:
+
+criar página para listar partidas
+criar página para cadastrar nova partida
+salvar a partida no banco
+exibir as partidas cadastradas
+
+Depois, na próxima etapa, vamos ligar os jogadores à partida.

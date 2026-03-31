@@ -1,0 +1,19 @@
+Primeiro passo: definir o escopo exato da versão 1
+
+Eu proponho esta V1:
+
+Objetivo:
+Criar um app web para cadastrar jogadores, criar partidas e registrar desempenho de cada jogador.
+
+Funcionalidades da V1:
+
+cadastrar jogador
+listar jogadores
+criar partida
+selecionar jogadores participantes
+dividir os times
+registrar gols, assistências e nota por jogador
+visualizar histórico das partidas
+exibir ranking simples dos jogadores
+
+Se você topar essa V1, no próximo passo eu monto para você, de forma bem didática, a estrutura do projeto e as tabelas, antes de escrever qualquer código.

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Ranking{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <div>
+            <h2>Ranking de jogadores</h2>
+            <p>Métricas consolidadas com base nas participações registradas nas partidas.</p>
+        </div>
+    </div>
+
+    {% if ranking_jogadores %}
+        <div class="ranking-summary">
+            <div class="summary-card">
+                <h3>Total de jogadores</h3>
+                <p>{{ ranking_jogadores|length }}</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Maior média de nota</h3>
+                <p>{{ '%.2f'|format(ranking_jogadores[0].media_nota) }}</p>
+            </div>
+
+            <div class="summary-card">
+                <h3>Maior número de gols</h3>
+                <p>{{ ranking_jogadores[0].total_gols }}</p>
+            </div>
+        </div>
+
+        <div class="ranking-table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Jogador</th>
+                        <th>Gols</th>
+                        <th>Assistências</th>
+                        <th>Média de Nota</th>
+                        <th>Partidas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jogador in ranking_jogadores %}
+                        <tr>
+                            <td class="ranking-position">{{ loop.index }}</td>
+                            <td class="highlight-name">{{ jogador.nome }}</td>
+                            <td>{{ jogador.total_gols }}</td>
+                            <td>{{ jogador.total_assistencias }}</td>
+                            <td>{{ '%.2f'|format(jogador.media_nota) }}</td>
+                            <td>{{ jogador.total_partidas }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>Ainda não há dados suficientes para gerar o ranking.</p>
+        </div>
+    {% endif %}
+{% endblock %}

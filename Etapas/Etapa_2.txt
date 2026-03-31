@@ -1,0 +1,124 @@
+Etapa 2: estrutura do projeto
+
+Como você quer fazer com calma, primeiro vamos só definir a organização das pastas, sem entrar em código ainda.
+
+Estrutura que eu recomendo
+
+app_futebol/
+│
+├── app.py
+├── config.py
+├── models.py
+├── requirements.txt
+│
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── jogadores.html
+│   ├── nova_partida.html
+│   ├── partidas.html
+│   └── detalhes_partida.html
+│
+├── static/
+│   └── css/
+│       └── style.css
+│
+└── instance/
+    └── futebol.db
+
+O que cada arquivo faz
+
+app.py
+
+É o arquivo principal da aplicação.
+
+Ele vai:
+
+iniciar o Flask
+carregar configurações
+conectar ao banco
+registrar as rotas
+
+config.py
+
+Serve para guardar configurações do projeto, por exemplo:
+
+caminho do banco SQLite
+chave secreta
+modo debug
+
+Isso ajuda a deixar o app.py mais limpo.
+
+models.py
+
+Aqui ficam as tabelas do banco:
+
+Jogador
+Partida
+ParticipacaoPartida
+
+Esse arquivo é muito importante para o portfólio, porque mostra sua modelagem de dados.
+
+requirements.txt
+
+Lista as bibliotecas do projeto, como:
+
+Flask
+Flask-SQLAlchemy
+
+Isso facilita instalar tudo depois.
+
+Pasta templates/
+
+Aqui ficam as páginas HTML.
+
+base.html
+
+Vai ser o layout base do site.
+
+Ele evita repetição, porque cabeçalho, título e estrutura principal ficam centralizados nele.
+
+index.html
+
+Página inicial.
+
+jogadores.html
+
+Tela para cadastrar e listar jogadores.
+
+nova_partida.html
+
+Tela para criar uma nova partida.
+
+partidas.html
+
+Lista de partidas cadastradas.
+
+detalhes_partida.html
+
+Mostra os detalhes da partida e o desempenho dos jogadores.
+
+Pasta static/css/
+style.css
+
+Arquivo de estilo.
+
+Deixar o CSS separado é melhor do que colocar tudo dentro do HTML.
+
+Pasta instance/
+futebol.db
+
+Aqui ficará o banco SQLite.
+
+Isso é bom porque separa o banco dos arquivos principais do projeto.
+
+Por que essa estrutura é boa para portfólio
+
+Porque ela mostra:
+
+organização
+separação de responsabilidades
+noção de arquitetura básica web
+cuidado com manutenção do projeto
+
+Mesmo sendo um projeto simples, ele já fica com aparência mais profissional.

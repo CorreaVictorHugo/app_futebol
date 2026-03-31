@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Partidas{% endblock %}
+
+{% block content %}
+    <div class="section-header">
+        <div>
+            <h2>Partidas</h2>
+            <p>Crie partidas, acompanhe os participantes e acesse os detalhes de cada jogo.</p>
+        </div>
+    </div>
+
+    <p>
+        <a href="/partidas/nova" class="botao-link">Cadastrar nova partida</a>
+    </p>
+
+    {% if partidas %}
+        <div class="matches-grid">
+            {% for partida in partidas %}
+                <div class="match-card">
+                    <h3>Partida #{{ partida.id }}</h3>
+
+                    <div class="match-meta">
+                        <p><strong>Data:</strong> {{ partida.data.strftime('%d/%m/%Y %H:%M') }}</p>
+                        <p><strong>Participações:</strong> {{ partida.participacoes|length }}</p>
+                    </div>
+
+                    <div class="match-actions">
+                        <a href="/partidas/{{ partida.id }}" class="match-link">Ver detalhes</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>Nenhuma partida cadastrada ainda.</p>
+        </div>
+    {% endif %}
+{% endblock %}

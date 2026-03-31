@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Jogadores{% endblock %}
+
+{% block content %}
+
+    <div class="section-header">
+        <div>
+            <h2>Jogadores</h2>
+            <p>Cadastre os jogadores e mantenha a base utilizada nas partidas e análises do sistema.</p>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <h3>Novo jogador</h3>
+
+        <form method="POST" action="/jogadores/cadastrar">
+            <div class="form-grid">
+                <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Digite o nome" required>
+                </div>
+
+                <div>
+                    <label for="apelido">Apelido</label>
+                    <input type="text" name="apelido" id="apelido" placeholder="Digite o apelido">
+                </div>
+
+                <div>
+                    <label for="posicao">Posição</label>
+                    <select name="posicao" id="posicao">
+                        <option value="">Selecione a posição</option>
+                        <option value="Goleiro">Goleiro</option>
+                        <option value="Zagueiro">Zagueiro</option>
+                        <option value="Meia">Meia</option>
+                        <option value="Atacante">Atacante</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Cadastrar jogador</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="section-header">
+        <div>
+            <h3>Jogadores cadastrados</h3>
+            <p class="muted-text">Total de jogadores cadastrados: {{ jogadores|length }}</p>
+        </div>
+    </div>
+
+    {% if jogadores %}
+        <div class="players-grid">
+            {% for jogador in jogadores %}
+                <div class="player-card">
+                    <div class="player-top">
+                        <div class="player-avatar">
+                            {{ jogador.nome[0].upper() }}
+                        </div>
+
+                        <div class="player-info">
+                            <h3>{{ jogador.nome }}</h3>
+                            <p>{{ jogador.apelido or "Sem apelido" }}</p>
+                        </div>
+                    </div>
+
+                    <div class="player-meta">
+                        <span class="badge">{{ jogador.posicao or "Sem posição" }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <p>Nenhum jogador cadastrado ainda.</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

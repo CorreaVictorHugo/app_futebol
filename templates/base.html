@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}App Futebol{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="topbar-container">
+            <div class="brand">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo da pelada" class="logo">
+                <div class="brand-text">
+                    <h1>App do Futebol de Segunda</h1>
+                    <p>Gestão e análise de desempenho</p>
+                </div>
+            </div>
+
+            <nav class="menu">
+                <a href="/">Início</a>
+                <a href="/jogadores">Jogadores</a>
+                <a href="/partidas">Partidas</a>
+                <a href="/ranking">Ranking</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

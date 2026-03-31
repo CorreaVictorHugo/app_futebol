@@ -1,0 +1,18 @@
+Etapa 3 — Modelagem do banco (models.py)
+🎯 Objetivo
+
+Criar as tabelas do sistema usando Flask-SQLAlchemy.
+
+Essa é a base do projeto e também o ponto mais forte para portfólio de dados.
+
+🧠 Antes do código (entendimento rápido)
+
+Você vai transformar isso:
+
+Jogador
+Partida
+Participação
+
+em tabelas no banco.
+
+E cada classe no Python = uma tabela no banco.
